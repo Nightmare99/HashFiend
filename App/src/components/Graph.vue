@@ -26,7 +26,6 @@
 <script>
  /* eslint-disable */ 
 import Chart from 'chart.js';
-import axios from 'axios';
 import Sentiment from 'sentiment';
 import io from 'socket.io-client';
 
@@ -97,7 +96,7 @@ export default {
     },
     stop() {
       this.socket.close();
-      document.getElementById('stop').style.display = "hide";
+      document.getElementById('stop').style.display = "none";
       document.getElementById('clear').style.display = "block";
     },
     clear() {
