@@ -1,5 +1,5 @@
 # HashFiend 😈
-Does sentiment analysis on a thousand tweets about a topic of your choosing.
+Does sentiment analysis on tweets about a topic of your choosing.
 
 ## Setting up the environment
 
