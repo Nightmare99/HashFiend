@@ -20,7 +20,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('query', (data) => {
         var stream = client.stream('statuses/filter', { track: data.query, language: 'en' });
         stream.on('tweet', function (tweet) {
-            console.log(tweet.text);
+            console.log(tweet.user);
             socket.emit('stream', { tweet: tweet.text });
         });
         socket.on('disconnect', function () {

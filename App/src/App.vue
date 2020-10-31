@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <br>
-    <Graph id="pie" msg="Welcome to Your Vue.js App"/>
+    <Graph msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
