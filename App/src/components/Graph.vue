@@ -26,6 +26,7 @@
       <div class="col-8">
         <h1 style="display: none;" id="tweetsHeading">Tweets:</h1>
         <div id="tweets" class="tweets"></div>
+        <a class="btn btn-success mb-2 m-3" type="button" v-on:click="downloadDataset" style="display: none; color: white;" id="download">Download</a>
       </div>
     </div>
   </div>
@@ -122,16 +123,26 @@ export default {
       this.socket.close();
       document.getElementById('stop').style.display = "none";
       document.getElementById('clear').style.display = "block";
+      document.getElementById('download').style.display = "block";
     },
     clear() {
       this.myChart.destroy();
       document.getElementById('meta').style.display = "none";
       document.getElementById('tweetsHeading').style.display = "none";
+      document.getElementById('download').style.display = "none";
       document.getElementById('tweets').innerHTML = "";
       this.count = 0;
       this.result.positive = 0;
       this.result.negative = 0;
       this.result.neutral = 0; 
+    },
+    downloadDataset() {
+      var base64doc = btoa(unescape(encodeURIComponent(document.getElementById('tweets').innerText))),
+          a = document.getElementById('download');
+          //e = new MouseEvent('click');
+      a.download = 'dataset.txt';
+      a.href = 'data:text/text;base64,' + base64doc;
+      //a.dispatchEvent(e);
     }
   },
   name: 'Graph',
