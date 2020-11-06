@@ -87,7 +87,7 @@ export default {
       var data = {
         query: this.query
       };
-      this.socket = io('http://192.168.0.132:3000/', {'sync disconnect on unload': true });
+      this.socket = io('http://192.168.0.132:3000/', {transports: ['websocket'], upgrade: false, 'sync disconnect on unload': true });
       this.socket.emit('query', data);
       this.socket.on('stream', (data) => {
           this.count++;
